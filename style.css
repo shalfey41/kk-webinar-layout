@@ -1,0 +1,207 @@
+:root {
+    --constant-black: #262a2f;
+    --constant-accent: #0083fc;
+    --constant-grey1: #ebebeb;
+    --constant-grey2: #a3a3a3;
+    --constant-white: #fff;
+    --constant-red: #f53;
+}
+
+:not(svg *) {
+    all: unset;
+    display: revert;
+}
+
+.visually-hidden {
+    position: fixed;
+    transform: scale(0);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--constant-black);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    flex-shrink: 0;
+    padding: 20px;
+    background-color: var(--constant-black);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    color: var(--constant-white);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+}
+
+.nav-list-item:not(:last-child)::after {
+    content: "•";
+}
+
+.nav-link {
+    padding: 5px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nav-link:hover {
+    color: var(--constant-accent);
+}
+
+.main {
+    display: flex;
+    flex-grow: 1;
+}
+
+.aside {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 230px;
+    border-right: 3px solid var(--constant-black);
+}
+
+.section {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.top-menu {
+    list-style: none;
+}
+
+.top-menu-link {
+    padding: 12px 10px;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.top-menu-link:hover {
+    background-color: #e0f0ff;
+}
+
+.top-menu-link svg {
+    fill: currentColor;
+}
+
+.top-menu-link.active {
+    background-color: var(--constant-accent);
+    color: var(--constant-white);
+}
+
+.goods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.goods-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.goods-item-image {}
+
+.goods-item-title {
+    font-weight: bold;
+}
+
+.goods-item-button {
+    padding: 8px 16px;
+    font-weight: bold;
+    background-color: var(--constant-accent);
+    color: var(--constant-white);
+    width: max-content;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.goods-item-button:hover {
+    opacity: 0.7;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    position: relative;
+    width: 570px;
+    height: 500px;
+    background-color: var(--constant-white);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--constant-white);
+    width: 40px;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    opacity: 0.7;
+}
+
+.modal-background {
+    width: 100%;
+    height: 250px;
+    background: url(images/iphone-background.png);
+}
+
+.modal-text-content {
+    padding: 20px;
+}
+
+.modal-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.modal-text {
+    margin-top: 10px;
+}
