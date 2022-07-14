@@ -34,18 +34,21 @@ body {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+    gap: 20px;
     color: var(--constant-white);
 }
 
 .logo {
     font-size: 22px;
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .nav-list {
     list-style: none;
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
 }
 
 .nav-list-item:not(:last-child)::after {
@@ -100,6 +103,7 @@ body {
 
 .top-menu-link svg {
     fill: currentColor;
+    width: 100%;
 }
 
 .top-menu-link.active {
@@ -107,9 +111,15 @@ body {
     color: var(--constant-white);
 }
 
+.top-menu-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .goods {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
     gap: 20px;
 }
 
@@ -119,7 +129,18 @@ body {
     gap: 10px;
 }
 
-.goods-item-image {}
+.goods-item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.goods-item-image-container {
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .goods-item-title {
     font-weight: bold;
@@ -163,7 +184,7 @@ body {
 
 .modal-container {
     position: relative;
-    width: 570px;
+    width: 720px;
     height: 500px;
     background-color: var(--constant-white);
 }
@@ -190,7 +211,13 @@ body {
 .modal-background {
     width: 100%;
     height: 250px;
-    background: url(images/iphone-background.png);
+    background: #3a6128 no-repeat url(images/iphone-background.png) center/cover;
+}
+
+.modal-content {
+    overflow: auto;
+    height: 100%;
+    overscroll-behavior: contain;
 }
 
 .modal-text-content {
